@@ -5,23 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "StudentRecord")
-@Table(name = "student_records")
+@Entity
+@Table(name = "faculty")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+public class Faculty {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
     private String name;
-    private String roll;
-    private String usn;
-    private String college;
-    private String branch;
-    private String course;
-    private String year;
-    private String hallTicketNo;
+    private String email;
+    private String designation;
 
     @ManyToOne
     @JoinColumn(name = "dept_id")

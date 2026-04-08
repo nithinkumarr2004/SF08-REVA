@@ -1,0 +1,26 @@
+package com.example.RevastudentManagement.entity;
+
+import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "courses")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Course {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String courseName;
+    private String courseCode;
+    private int credits;
+
+    @ManyToOne
+    @JoinColumn(name = "dept_id")
+    private Department department;
+}
